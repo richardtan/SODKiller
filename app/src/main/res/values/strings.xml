@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">SOD Killer</string>
+    <string name="description"><![CDATA[
+        App is designed to fixed the SOD (Sleep of Death) issue that has plagued the Nexus 4.
+        This is an app for my own use, however it might be useful for other users who are Nexus 4
+        owners or owners of other devices that has the sleep of death problem.
+        <br /><br />
+        To enable, just click on the button above. This will create a wake lock and will not allow
+        your device to sleep. This is I feel the root cause of the SOD issue.
+        <br /><br /><strong>Permission</strong><br />
+        Run at startup - So if you restart the phone and you have allowed the app to keep the
+        wakelock, the program will keep a wakelock.
+        <br /><br />
+        Prevent phone from sleeping - We are keeping a wakelock, so this is obvious....
+        <br /><br /><strong>Donate</strong><br />
+        If this app works for you and you want to donate some money to me please click the below
+        PayPal link and give whatever you want. Thanks!!!
+        <br /><br />
+        <a href="https://www.paypal.me/RichardTan/">https://www.paypal.me/RichardTan</a>
+        <br /><br /><strong>Website</strong><br />
+        <a href="http://www.justexperiment.com">http://www.justexperiment.com</a>
+        <br /><br /><strong>GitHub</strong><br />
+        <a href="https://github.com/richardtan/SODKiller">https://github.com/richardtan/SODKiller</a>
+    ]]></string>
+    <string name="action_settings">Settings</string>
+</resources>

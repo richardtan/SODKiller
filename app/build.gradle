@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+// Keeping the properties file private for my keystore away from git commits
+Properties props = new Properties()
+props.load(new FileInputStream(project.rootProject.file('keystore.properties')))
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    signingConfigs {
+        keystorekey {
+            keyAlias props['keyAlias']
+            keyPassword props['keyPassword']
+            storeFile file(props['storeFile'])
+            storePassword props['storePassword']
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.tckr.sodkiller"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 4
+        versionName "0.4.20151010"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.keystorekey
+        }
+
+        // To compile locally and run it on your system in debug mode, remove the below as this is my key
+        debug {
+            signingConfig signingConfigs.keystorekey
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:22.2.1'
+}
