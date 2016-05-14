@@ -29,7 +29,6 @@
         </receiver>
 
         <service android:name=".KeepAliveService" />
-        <service android:name=".KeepAliveService2" />
 
     </application>
 

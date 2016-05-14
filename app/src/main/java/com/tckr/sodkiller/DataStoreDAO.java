@@ -13,6 +13,7 @@ public class DataStoreDAO {
 
     // Keys that we are using
     public static final String ENABLED = "enabled";
+    public static final String FOREGROUND = "foreground";
 
     // Create a global variable for the share preference
     private SharedPreferences sharedPreferences;

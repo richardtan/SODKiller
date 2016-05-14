@@ -20,20 +20,36 @@
             android:textSize="24sp"
             android:textIsSelectable="false" />
 
-        <ToggleButton
-            android:layout_width="wrap_content"
+        <Switch
+            android:text="@string/enable_sod"
+            android:id="@+id/main_enable"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
-            android:id="@+id/main_toggle"
-            android:layout_marginTop="32dp"
             android:layout_below="@+id/textView"
-            android:layout_centerHorizontal="true" />
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_centerHorizontal="true"
+            />
+
+        <Switch
+            android:text="@string/keep_foreground"
+            android:id="@+id/main_foreground"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_enable"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_centerHorizontal="true"
+            />
 
         <TextView
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:id="@+id/textViewMsg"
             android:textSize="16sp"
-            android:layout_below="@+id/main_toggle"
+            android:layout_below="@+id/main_foreground"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="32dp" />
 

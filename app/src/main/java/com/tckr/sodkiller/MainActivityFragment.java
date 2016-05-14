@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 public class MainActivityFragment extends Fragment {
 
@@ -29,9 +29,9 @@ public class MainActivityFragment extends Fragment {
 
         // Set the toggle button and set all the listeners
         boolean isEnabled = dao.getDataBoolean(DataStoreDAO.ENABLED);
-        ToggleButton mainToggle = (ToggleButton) view.findViewById(R.id.main_toggle);
-        mainToggle.setChecked(isEnabled);
-        mainToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        Switch mainEnable = (Switch) view.findViewById(R.id.main_enable);
+        mainEnable.setChecked(isEnabled);
+        mainEnable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
@@ -51,6 +51,16 @@ public class MainActivityFragment extends Fragment {
             stopKeepAlive();
         }
 
+        boolean isForeground = dao.getDataBoolean(DataStoreDAO.FOREGROUND);
+        Switch mainForeground = (Switch) view.findViewById(R.id.main_foreground);
+        mainForeground.setChecked(isForeground);
+        mainForeground.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                setForegroundService(isChecked);
+            }
+        });
+
         TextView aboutMsg = (TextView) view.findViewById(R.id.textViewMsg);
         aboutMsg.setMovementMethod(LinkMovementMethod.getInstance());
         aboutMsg.setText(Html.fromHtml(getString(R.string.description)));
@@ -62,22 +72,37 @@ public class MainActivityFragment extends Fragment {
      * Start keep alive
      */
     public void startKeepAlive() {
-
         dao.putDataBoolean(DataStoreDAO.ENABLED, true);
         Intent notificationIntent = new Intent(context, KeepAliveService.class);
         context.startService(notificationIntent);
-
     }
 
     /**
      * Used to stop the service
      */
     public void stopKeepAlive() {
-
         dao.putDataBoolean(DataStoreDAO.ENABLED, false);
         Intent notificationIntent = new Intent(context, KeepAliveService.class);
         context.stopService(notificationIntent);
+    }
 
+    /**
+     * Used to start and stop the foreground service
+     * @param enable
+     *      true to set the service
+     *      false to disable it
+     */
+    public void setForegroundService(boolean enable) {
+        dao.putDataBoolean(DataStoreDAO.FOREGROUND, enable);
+        Intent notificationIntent = new Intent(context, KeepAliveService.class);
+        context.stopService(notificationIntent); // to remove wakelock
+        context.startService(notificationIntent); // restart and apply foreground settings
+
+        // Remove the service if keep alive is disabled
+        boolean isKeepAliveEnabled = dao.getDataBoolean(DataStoreDAO.ENABLED);
+        if (!isKeepAliveEnabled) {
+            context.stopService(notificationIntent);
+        }
     }
 
 }
