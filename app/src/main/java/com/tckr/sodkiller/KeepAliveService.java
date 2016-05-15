@@ -41,6 +41,7 @@ public class KeepAliveService extends IntentService {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         android.support.v4.app.NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.ic_notification)
                 .setContentTitle(getString(R.string.app_name))
                 .setContentText(getString(R.string.notification_text))
                 .setContentIntent(pendingIntent);
@@ -53,13 +54,6 @@ public class KeepAliveService extends IntentService {
         Notification notification = builder.build();
 
         startForeground(NOTIFICATION_ID, notification);
-    }
-
-    /**
-     * Method used to stop the foreground service
-     */
-    public void stopForegroundService() {
-        stopForeground(true);
     }
 
     /**
