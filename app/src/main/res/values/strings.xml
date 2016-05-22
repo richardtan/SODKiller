@@ -5,11 +5,14 @@
         This is an app for my own use, however it might be useful for other users who are Nexus 4
         owners or owners of other devices that has the sleep of death problem.
         <br /><br />
-        To enable, just click "Enable SOD". This will create a wake lock and will not allow
-        your device to sleep. This is I feel the root cause of the SOD issue.
+        To enable, just click &quot;Enable SOD&quot;. This will create a wake lock and will not allow
+        your device to sleep, which hopefully mean you are less likely to get the SOD issue. I feel
+        sometimes if the device falls into deep sleep that it cannot be woken up and causes the SOD
+        issue. Because the app keeps your device awake you will notice that the app will consume
+        more battery, which is a trade off for having your phone turn on.
         <br /><br />
-        If does not work, you can keep SOD Killer running in the foreground. This will set a
-        notification in your notification tray.
+        If you still experience problems you can keep SOD Killer running in the foreground.
+        This will set a notification in your notification tray.
         <br /><br /><strong>Permission</strong><br />
         Run at startup - So if you restart the phone and you have allowed the app to keep the
         wakelock, the program will keep a wakelock.
@@ -20,7 +23,7 @@
         PayPal link and give whatever you want. <br />Thanks!!!
         <br /><br />
         <a href="https://www.paypal.me/RichardTan/">https://www.paypal.me/RichardTan</a>
-        <br /><br /><strong>Website</strong><br />
+        <br /><br /><br /><strong>Website</strong><br />
         <a href="http://www.justexperiment.com">http://www.justexperiment.com</a>
         <br /><br /><strong>GitHub</strong><br />
         <a href="https://github.com/richardtan/SODKiller">https://github.com/richardtan/SODKiller</a>

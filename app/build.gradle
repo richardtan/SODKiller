@@ -21,8 +21,8 @@ android {
         applicationId "com.tckr.sodkiller"
         minSdkVersion 15
         targetSdkVersion 22
-        versionCode 4
-        versionName "0.4.20151010"
+        versionCode 5
+        versionName "0.5.20160522"
     }
     buildTypes {
         release {
